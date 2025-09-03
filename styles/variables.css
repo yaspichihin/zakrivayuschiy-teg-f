@@ -3,7 +3,10 @@
 */
 :root {
   --main-font: 'Inter';
+  --main-font-weight-normal: 410;
+  --main-font-weight-bold: 715;
   --accent-font: 'PressStart2P';
+
   /* prettier-ignore */
   --background-gradient:
     repeating-linear-gradient(

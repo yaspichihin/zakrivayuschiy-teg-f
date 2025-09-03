@@ -31,11 +31,16 @@ input {
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
+  padding: 0;
 }
 
 ul,
 ol {
   list-style: none;
+}
+
+dialog {
+  padding: 0;
 }
 
 .visually-hidden {
