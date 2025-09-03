@@ -10,22 +10,22 @@ HTML некоторые классы были названы особым обр
 */
 
 .page {
-  min-inline-size: 375px;
-  max-inline-size: 1440px;
-  min-block-size: 100dvb;
   margin: 0 auto;
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: 'wght' var(--main-font-weight-normal);
   font-size: 18px;
   line-height: 21px;
   background-image: var(--background-gradient);
   background-size: cover;
   background-attachment: fixed;
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
+  min-block-size: 100dvb;
+  font-variation-settings: 'wght' var(--main-font-weight-normal);
 }
 
 .container {
-  max-inline-size: 700px;
   margin: 0 auto;
+  max-inline-size: 700px;
 }
 
 .header {
@@ -43,12 +43,12 @@ HTML некоторые классы были названы особым обр
 }
 
 .header__content {
-  margin-block: clamp(7.5rem, 7.2799rem + 0.939vw, 8.125rem);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 20px;
+  margin-block: clamp(7.5rem, 7.2799rem + 0.939vw, 8.125rem);
 }
 
 .header__title {
@@ -62,23 +62,23 @@ HTML некоторые классы были названы особым обр
 .cards {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 50px;
 }
 
 .card {
-  border: 2px solid black;
-  background-color: white;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  border: 2px solid black;
+  background-color: white;
 }
 
 .card__title {
-  font-variation-settings: 'wght' var(--main-font-weight-bold);
-  font-size: 18px;
   padding: 4px 10px;
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--main-font-weight-bold);
 }
 
 .card__image-container {
@@ -87,11 +87,11 @@ HTML некоторые классы были названы особым обр
 }
 
 .card__image {
-  inline-size: 100%;
-  block-size: 100%;
   display: block;
   object-fit: cover;
   object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
   aspect-ratio: 1 / 1;
 }
 
@@ -99,54 +99,66 @@ HTML некоторые классы были названы особым обр
   position: absolute;
   top: 25px;
   right: 25px;
+  opacity: 0.5;
   font-family: var(--accent-font, serif);
   font-size: 14px;
-  text-transform: uppercase;
-  opacity: 0.5;
   line-height: 22.09px;
-  mix-blend-mode: hard-light;
+  text-transform: uppercase;
   /* prettier-ignore */
   text-shadow: 
     1px 1px white,
     -1px -1px white,
     1px -1px white,
     -1px 1px white;
+  mix-blend-mode: hard-light;
 }
 
 @supports ((text-stroke: 1px white) or (-webkit-text-stroke: 1px white)) {
   .card__image-watermark {
+    text-shadow: none;
     text-stroke: 1px white;
     -webkit-text-stroke: 1px white;
-    text-shadow: none;
   }
 }
 
 .card__content {
-  padding: 21px 25px 25px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  padding: 21px 25px 25px;
 }
 
 .card__actions {
-  margin-block-end: 25px;
-  margin-inline-end: 25px;
   display: flex;
   flex-direction: row;
-  gap: 12px;
-  align-items: center;
   justify-content: end;
+  align-items: center;
+  gap: 12px;
   align-self: end;
+  margin-inline-end: 25px;
+  margin-block-end: 25px;
 }
 
 .card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: transparent;
+  outline: 2px solid transparent;
+  outline-offset: -1px;
+  transition: outline-color 0.3s ease;
+  cursor: pointer;
   min-inline-size: 27px;
   min-block-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
 }
 
 .like-icon {
@@ -155,53 +167,89 @@ HTML некоторые классы были названы особым обр
 }
 
 .card__like-button {
-  border: 2px solid black;
-  background-color: transparent;
   min-inline-size: 130px;
   min-block-size: 38px;
 }
 
 .button__text {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  color: white;
   font-family: var(--accent-font, serif);
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
+  mix-blend-mode: difference;
+  min-inline-size: min-content;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+  outline-offset: 2px;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px var(--accent-color);
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.button:hover::after {
+  transform: translateX(0);
 }
 
 .save-button {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 8px;
+  margin: 50px auto 100px;
   border: 2px solid black;
   background-color: white;
   inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
   block-size: 84px;
-  margin: 50px auto 100px;
 }
 
 .save-icon {
+  position: relative;
+  z-index: 1;
+  color: white;
   inline-size: 28px;
   block-size: 28px;
+  mix-blend-mode: difference;
 }
 
 .dialog {
-  min-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  min-block-size: 191px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 30px;
-  position: fixed;
-  inset: 0;
   transition: opacity 0.3s ease-in-out;
+  min-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
+  min-block-size: 191px;
 }
 
 .dialog:not([open]) {
-  pointer-events: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .dialog::backdrop {
@@ -211,32 +259,30 @@ HTML некоторые классы были названы особым обр
 .dialog__content {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
   inline-size: clamp(16.3125rem, 15.6083rem + 3.0047vw, 18.3125rem);
 }
 
 .dialog__content-icon {
+  flex-shrink: 0;
   inline-size: 39px;
   block-size: 39px;
-  flex-shrink: 0;
 }
 
 .dialog__content-text {
   font-family: var(--accent-font, serif);
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
 }
 
 .dialog__close-button {
+  text-transform: uppercase;
   inline-size: clamp(16.3125rem, 15.6083rem + 3.0047vw, 18.3125rem);
   block-size: 38px;
-  border: 2px solid black;
-  background-color: transparent;
-  text-transform: uppercase;
 }
 
 .filter-sepia {
@@ -266,7 +312,6 @@ HTML некоторые классы были названы особым обр
 .filter-contrast {
   filter: contrast(2.5);
 }
-
 
 @media (width > 375px) {
   .save-button {
