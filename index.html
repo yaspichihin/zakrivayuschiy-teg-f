@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Закрытие 4 спринта" />
+    <meta property="og:title" content="Закрывающий тег" />
+    <meta property="og:description" content="Закрытие 4 спринта" />
     <title>Закрывающий тег</title>
     <link rel="icon" href="./images/favicon.jpg" sizes="any" />
     <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
@@ -69,7 +72,7 @@
           <h2 class="card__title">1 спринт: Я — чистый лист</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-sepia"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -113,7 +116,7 @@
           <h2 class="card__title">1 спринт: А если не получится?</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-saturate"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -154,7 +157,7 @@
           <h2 class="card__title">2 спринт: Погоня за идеалом</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-hue-rotate"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -197,7 +200,7 @@
           <h2 class="card__title">2 спринт: О тех, кто рядом</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-multiple"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -241,7 +244,7 @@
           <h2 class="card__title">3 спринт: Обходные стратегии</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-grayscale"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -282,7 +285,7 @@
           <h2 class="card__title">3 спринт: Когда опускаются руки</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-blur"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -325,7 +328,7 @@
           <h2 class="card__title">«Сейчас я здесь»</h2>
           <div class="card__image-container">
             <img
-              class="card__image"
+              class="card__image filter-contrast"
               loading="lazy"
               src="./images/pixel_camper_at_night.png"
               alt="Пиксельный кемпер ночью"
@@ -368,10 +371,10 @@
         </article>
       </section>
       <button
-        class="button save-button"
+        class="save-button"
         type="button"
         onclick="window['save-dialog'].showModal()"
-        aria-label="Сохранить на память"
+        aria-label="save-button"
       >
         <svg viewBox="0 0 22 21" class="save-icon">
           <use href="./svg/floppy.svg#floppy"></use>
@@ -387,9 +390,14 @@
             >Вставьте дискету, чтобы продолжить
           </span>
         </div>
-        <button type="button" onclick="window['save-dialog'].close()">
-          <span>ок</span>
-        </button>
+        <form>
+          <button
+            class="dialog__close-button button__text"
+            onclick="window['save-dialog'].close()"
+          >
+            ок
+          </button>
+        </form>
       </dialog>
     </main>
     <script src="./scripts/like.js"></script>
