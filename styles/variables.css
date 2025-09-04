@@ -7,7 +7,13 @@
   --main-font-weight-bold: 715;
   --accent-font: 'PressStart2P';
   --accent-color: #000;
-
+  --heart-stroke: #000;
+  --heart-fill: #f00;
+  --heart-sparks-fill: #f00;
+  --contour-color: #000;
+  --core-color: transparent;
+  --main-body-color: transparent;
+  --sparks-color: #f00;
   /* prettier-ignore */
   --background-gradient:
     repeating-linear-gradient(
