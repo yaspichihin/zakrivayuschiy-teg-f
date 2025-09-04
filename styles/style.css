@@ -1,17 +1,6 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в
-HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца;
-✦ card__like-button — для кнопки Like рядом с иконкой;
-✦ card__icon-button — для кнопки, оборачивающей иконку;
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца;
-✦ button__text — для обозначения текстового элемента внутри кнопки.
-*/
-
 .page {
   margin: 0 auto;
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font);
   font-size: 18px;
   line-height: 21px;
   background-image: var(--background-gradient);
@@ -21,6 +10,7 @@ HTML некоторые классы были названы особым обр
   max-inline-size: 1440px;
   min-block-size: 100dvb;
   font-variation-settings: 'wght' var(--main-font-weight-normal);
+  scrollbar-gutter: stable;
 }
 
 .container {
@@ -35,10 +25,9 @@ HTML некоторые классы были названы особым обр
 }
 
 .accent-text {
-  font-family: var(--accent-font, serif);
+  font-family: var(--accent-font);
   font-weight: 400;
   line-height: 100%;
-  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -72,12 +61,14 @@ HTML некоторые классы были названы особым обр
   flex-direction: column;
   gap: 2px;
   border: 2px solid black;
+  padding-block-end: 25px;
   background-color: white;
 }
 
 .card__title {
-  padding: 4px 10px;
+  padding: 3px 10px;
   font-size: 18px;
+  line-height: 1.223;
   font-variation-settings: 'wght' var(--main-font-weight-bold);
 }
 
@@ -97,10 +88,10 @@ HTML некоторые классы были названы особым обр
 
 .card__image-watermark {
   position: absolute;
-  top: 25px;
+  top: 21px;
   right: 25px;
   opacity: 0.5;
-  font-family: var(--accent-font, serif);
+  font-family: var(--accent-font);
   font-size: 14px;
   line-height: 22.09px;
   text-transform: uppercase;
@@ -125,7 +116,7 @@ HTML некоторые классы были названы особым обр
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding: 21px 25px 25px;
+  padding: 25px 25px 21px;
 }
 
 .card__actions {
@@ -133,24 +124,19 @@ HTML некоторые классы были названы особым обр
   flex-direction: row;
   justify-content: end;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   align-self: end;
   margin-inline-end: 25px;
-  margin-block-end: 25px;
 }
 
 .card__icon-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: none;
-  background-color: transparent;
   outline: 2px solid transparent;
   outline-offset: -1px;
+  background-color: transparent;
   transition: outline-color 0.3s ease;
-  cursor: pointer;
-  min-inline-size: 27px;
-  min-block-size: 24px;
+  inline-size: 39px;
+  block-size: 36px;
 }
 
 .card__icon-button:focus {
@@ -162,13 +148,13 @@ HTML некоторые классы были названы особым обр
 }
 
 .like-icon {
-  min-inline-size: 100%;
-  min-block-size: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .like-icon.is-liked .heart {
   transform-origin: center;
-  animation: scale 0.3s 0.1s ease-in;
+  animation: pulse 0.3s 0.1s ease-in;
 }
 
 .like-icon .contour {
@@ -225,7 +211,7 @@ HTML некоторые классы были названы особым обр
 }
 
 .like-icon.is-liked .sparks {
-  animation: spark-opacity 0.3s 0.3s ease-in;
+  animation: fadeInOut 0.3s 0.3s ease-in;
 }
 
 .card__like-button {
@@ -238,7 +224,7 @@ HTML некоторые классы были названы особым обр
   z-index: 1;
   flex-shrink: 0;
   color: white;
-  font-family: var(--accent-font, serif);
+  font-family: var(--accent-font);
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
@@ -248,8 +234,11 @@ HTML некоторые классы были названы особым обр
 
 .button {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  background-color: transparent;
+  background-color: white;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -277,16 +266,12 @@ HTML некоторые классы были названы особым обр
 }
 
 .save-button {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
   margin: 50px auto 100px;
   border: 2px solid black;
-  background-color: white;
   inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
-  block-size: 84px;
+  padding-block: 15.5px;
 }
 
 .save-icon {
@@ -306,16 +291,15 @@ HTML некоторые классы были названы особым обр
   gap: 30px;
   transition: opacity 0.3s ease-in-out;
   min-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  min-block-size: 191px;
+  padding-block: 30px;
 }
 
 .dialog:not([open]) {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.7);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 .dialog__content {
@@ -334,7 +318,7 @@ HTML некоторые классы были названы особым обр
 }
 
 .dialog__content-text {
-  font-family: var(--accent-font, serif);
+  font-family: var(--accent-font);
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
@@ -344,7 +328,7 @@ HTML некоторые классы были названы особым обр
 .dialog__close-button {
   text-transform: uppercase;
   inline-size: clamp(16.3125rem, 15.6083rem + 3.0047vw, 18.3125rem);
-  block-size: 38px;
+  padding-block: 12.5px;
 }
 
 .filter-sepia {
@@ -376,9 +360,12 @@ HTML некоторые классы были названы особым обр
 }
 
 @media (width > 375px) {
+  .header {
+    margin-block: 100px 95px;
+  }
   .save-button {
     flex-direction: row;
-    block-size: 55px;
+    padding-block: 14px;
   }
   .save-icon {
     inline-size: 21px;

@@ -2,10 +2,10 @@
 а так же их изменения в зависимости от ширины устройства.
 */
 :root {
-  --main-font: 'Inter';
+  --main-font: 'Inter', sans-serif;
   --main-font-weight-normal: 410;
   --main-font-weight-bold: 715;
-  --accent-font: 'PressStart2P';
+  --accent-font: 'PressStart2P', serif;
   --accent-color: #000;
   --heart-stroke: #000;
   --heart-fill: #f00;
